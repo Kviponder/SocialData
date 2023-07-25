@@ -1,7 +1,7 @@
 {
   "name": "socialdata",
   "version": "1.0.0",
-  "description": "NA",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.4.0"
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2"
   }
 }

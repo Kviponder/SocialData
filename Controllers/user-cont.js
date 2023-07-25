@@ -43,6 +43,7 @@ const userController = {
         { $set: req.body },
         { new: true, runValidators: true }
       );
+      res.json(userData);
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
