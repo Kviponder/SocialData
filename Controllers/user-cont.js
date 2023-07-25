@@ -14,7 +14,7 @@ const userController = {
   async getSingleUser(req, res) {
     try {
       const userData = await User.findOne({ _id: req.params.id })
-        .selct("-__v")
+        .select("-__v")
         .populate("friends")
         .populate("thoughts");
 
@@ -65,7 +65,7 @@ const userController = {
   async addFriend(req, res) {
     try {
       const userData = await User.findOneAndUpdate(
-        { _id: req.params.id },
+        { _id: req.params.userId },
         { $addToSet: { friends: req.params.friendId } },
         { new: true }
       );
@@ -81,7 +81,7 @@ const userController = {
   async deleteFriend(req, res) {
     try {
       const userData = await User.findOneAndUpdate(
-        { _id: req.params.id },
+        { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { new: true }
       );

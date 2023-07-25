@@ -3,7 +3,7 @@ const { Thought, User } = require("../models");
 const thoughtController = {
   async getAllThoughts(req, res) {
     try {
-      const thoughtData = Thought.find().sort({ createdAt: -1 });
+      const thoughtData = await Thought.find().sort({ createdAt: -1 });
       res.json(thoughtData);
       if (!thoughtData) {
         return res.status(404).json({ message: "No thoughts found!" });
@@ -110,7 +110,7 @@ const thoughtController = {
     try {
       const thoughtData = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { $pull: { reactions: { _id: req.params.reactionId } } },
         { new: true }
       );
       if (!thoughtData) {
